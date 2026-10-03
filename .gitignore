@@ -1,0 +1,5 @@
+.venv/
+raw/
+logs/
+__pycache__/
+*.zip
