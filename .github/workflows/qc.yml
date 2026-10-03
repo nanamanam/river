@@ -1,4 +1,4 @@
-name: Tha Chin QC V1
+name: Tha Chin QC V2
 
 on:
   workflow_dispatch:
@@ -8,12 +8,9 @@ jobs:
     runs-on: [self-hosted, tha-chin]
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Run QC
+      - name: QC V2 diagnostic
         run: |
           /home/ubuntu/tha-chin-flood-ai/.venv/bin/python scripts/qc_v2_diag.py
-      - name: QC result
-        run: |
-          echo "=== OUTPUT ==="
-          ls -lh wl_clean_v1.parquet
