@@ -1,0 +1,19 @@
+name: Tha Chin Runner Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  runner-test:
+    runs-on: [self-hosted, tha-chin]
+
+    steps:
+      - name: System check
+        run: |
+          echo "=== THA CHIN EC2 RUNNER ==="
+          hostname
+          whoami
+          pwd
+          python3 --version
+          df -h /
+          echo "RUNNER_OK"
