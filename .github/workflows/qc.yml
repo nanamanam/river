@@ -1,19 +1,20 @@
-name: Tha Chin Runner Test
+name: Tha Chin QC V1
 
 on:
   workflow_dispatch:
 
 jobs:
-  runner-test:
+  qc:
     runs-on: [self-hosted, tha-chin]
 
     steps:
-      - name: System check
+      - uses: actions/checkout@v4
+
+      - name: Run QC
         run: |
-          echo "=== THA CHIN EC2 RUNNER ==="
-          hostname
-          whoami
-          pwd
-          python3 --version
-          df -h /
-          echo "RUNNER_OK"
+          /home/ubuntu/tha-chin-flood-ai/.venv/bin/python scripts/qc_wl.py
+
+      - name: QC result
+        run: |
+          echo "=== OUTPUT ==="
+          ls -lh wl_clean_v1.parquet
