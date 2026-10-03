@@ -12,8 +12,7 @@ jobs:
 
       - name: Run QC
         run: |
-          /home/ubuntu/tha-chin-flood-ai/.venv/bin/python scripts/qc_wl.py
-
+          /home/ubuntu/tha-chin-flood-ai/.venv/bin/python scripts/qc_v2_diag.py
       - name: QC result
         run: |
           echo "=== OUTPUT ==="
